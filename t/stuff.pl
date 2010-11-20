@@ -13,6 +13,8 @@ sub do_fs_stuff {
 	ok(file_bytes("$dir/$base-$_", $_), undef);
     }
     ok(file_bytes("$dir/$base-1"), "1");
+    ok(file_bytes("$dir/$base-1", "1a"), "1");
+    ok(file_bytes("$dir/$base-1", "1"), "1a");
     ok(mkdir("$dir/$dir-2"));
     ok(mkdir("$dir/$dir-10"));
     ok(mkdir("$dir/$dir-1"));

@@ -107,7 +107,6 @@ sub file_bytes {
 	    print $f $_[0];
 	}
         close($f) || die "Can't write to '$name': $!";
-        return;
     }
 
     return $old;
