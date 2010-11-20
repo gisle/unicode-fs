@@ -1,4 +1,5 @@
 use Unicode::FS ':all';
+use Unicode::Normalize qw(NFC);
 
 sub do_fs_stuff {
     my $dir = shift || "dir";
@@ -18,7 +19,7 @@ sub do_fs_stuff {
 
     my @files = sort(listdir($dir));
     ok(@files, 8);
-    ok($files[-1], "$base-5");
+    ok(NFC($files[-1]), "$base-5");
 
     #system("find $dir -ls");
     ok(rmtree($dir));
